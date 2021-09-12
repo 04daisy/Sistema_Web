@@ -1,0 +1,12 @@
+{% extends 'base1.html' %}
+
+{% block contenido %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ categoriaForm.as_p }}
+        <input type="submit" value="Guardar Datos">
+    </form>
+
+{% endblock %}
+

@@ -1,0 +1,48 @@
+{% extends 'base1.html' %}
+
+{% block contenido %}
+
+    <!--<h1> CONSULTA DE DETALLE_FACTURA</h1-->
+
+    <a href='{% url 'crear_detalle_factura' %}'> Crear Detalle_factura </a>
+
+
+    <table>
+
+        <th>Fecha Creacion</th>
+        <th>Fecha Modificacion</th>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+        <th>Descripcion</th>
+        <th>Valor</th>
+        <th>Descuento</th>
+        <!--th>Id</th>
+        <th>Estado</th-->
+        <th>Modificar</th>
+        <th>Eliminar</th>
+
+
+        {% for detalle_factura in detalles_facturas_ls %}
+
+            <tr>
+
+                <td>{{ detalle_factura.fecha_creacion }}</td>
+                <td>{{ detalle_factura.fecha_modificacion }}</td>
+                <td>{{ detalle_factura.fecha }}</td>
+                <td>{{ detalle_factura.cantidad }}</td>
+                <td>{{ detalle_factura.descripcion }}</td>
+                <td>{{ detalle_factura.valor }}</td>
+                <td>{{ detalle_factura.descuento }}</td>
+                <!--td>{{ detalle_factura.id }}</td>
+                <td>{{ detalle_factura.estado }}</td-->
+                <td><a href='{% url 'modificar_detalle_factura' detalle_factura.id %}'>...</a></td>
+                <td><a href='{% url 'eliminar_detalle_factura' detalle_factura.id %}'>...</a></td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

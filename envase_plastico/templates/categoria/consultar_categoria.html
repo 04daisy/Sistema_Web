@@ -1,0 +1,46 @@
+{% extends 'base1.html' %}
+
+{% block contenido %}
+
+    <!--<h1> CONSULTA DE CATEGORIA</h1-->
+
+    <a href='{% url 'crear_categoria' %}'> Crear Categoria </a>
+
+
+    <table>
+
+        <th>Fecha Creacion</th>
+        <th>Fecha Modificacion</th>
+        <th>Fecha</th>
+        <th>Descripcion</th>
+        <th>Marca</th>
+        <th>Codigo</th>
+        <!--th>Id</th>
+        <th>Estado</th-->
+        <th>Modificar</th>
+        <th>Eliminar</th>
+
+
+        {% for categoria in categorias_ls %}
+
+            <tr>
+
+                <td>{{ categoria.fecha_creacion }}</td>
+                <td>{{ categoria.fecha_modificacion }}</td>
+                <td>{{ categoria.fecha }}</td>
+                <td>{{ categoria.descripcion }}</td>
+                <td>{{ categoria.marca }}</td>
+                <td>{{ categoria.codigo }}</td>
+                <!--td>{{ categoria.id }}</td>
+                <td>{{ categoria.estado }}</td-->
+                <td><a href='{% url 'modificar_categoria' categoria.id %}'>...</a></td>
+                <td><a href='{% url 'eliminar_categoria' categoria.id %}'>...</a></td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

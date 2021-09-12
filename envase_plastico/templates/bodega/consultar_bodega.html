@@ -1,0 +1,44 @@
+{% extends 'base1.html' %}
+
+{% block contenido %}
+
+    <!--<h1> CONSULTA DE BODEGA</h1-->
+
+    <a href='{% url 'crear_bodega' %}'> Crear Bodega </a>
+
+
+    <table>
+
+        <th>Fecha Creacion</th>
+        <th>Fecha Modificacion</th>
+        <th>Fecha</th>
+        <th>Descripcion</th>
+        <th>Observacion</th>
+        <!--th>Id</th>
+        <th>Estado</th-->
+        <th>Modificar</th>
+        <th>Eliminar</th>
+
+
+        {% for bodega in bodegas_ls %}
+
+            <tr>
+
+                <td>{{ bodega.fecha_creacion }}</td>
+                <td>{{ bodega.fecha_modificacion }}</td>
+                <td>{{ bodega.fecha }}</td>
+                <td>{{ bodega.descripcion }}</td>
+                <td>{{ bodega.observacion }}</td>
+                <!--td>{{ bodega.id }}</td>
+                <td>{{ bodega.estado }}</td-->
+                <td><a href='{% url 'modificar_bodega' bodega.id %}'>...</a></td>
+                <td><a href='{% url 'eliminar_bodega' bodega.id %}'>...</a></td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

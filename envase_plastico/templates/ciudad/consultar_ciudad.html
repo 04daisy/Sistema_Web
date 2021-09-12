@@ -1,0 +1,42 @@
+{% extends 'base1.html' %}
+
+{% block contenido %}
+
+    <!--<h1> CONSULTA DE BODEGA</h1-->
+
+    <a href='{% url 'crear_ciudad' %}'> Crear Ciudad </a>
+
+
+    <table>
+
+        <th>Fecha Creacion</th>
+        <th>Fecha Modificacion</th>
+        <th>Fecha</th>
+        <th>Nombre</th>
+        <!--th>Id</th>
+        <th>Estado</th-->
+        <th>Modificar</th>
+        <th>Eliminar</th>
+
+
+        {% for ciudad in ciudades_ls %}
+
+            <tr>
+
+                <td>{{ ciudad.fecha_creacion }}</td>
+                <td>{{ ciudad.fecha_modificacion }}</td>
+                <td>{{ ciudad.fecha }}</td>
+                <td>{{ ciudad.nombre }}</td>
+                <!--td>{{ ciudad.id }}</td>
+                <td>{{ ciudad.estado }}</td-->
+                <td><a href='{% url 'modificar_ciudad' ciudad.id %}'>...</a></td>
+                <td><a href='{% url 'eliminar_ciudad' ciudad.id %}'>...</a></td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

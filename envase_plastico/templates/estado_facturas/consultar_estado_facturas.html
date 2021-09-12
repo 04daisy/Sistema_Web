@@ -1,0 +1,44 @@
+{% extends 'base1.html' %}
+
+{% block contenido %}
+
+    <!--<h1> CONSULTA DE ESTADO_FACTURAS</h1-->
+
+    <a href='{% url 'crear_estado_facturas' %}'> Crear  Estado_facturas </a>
+
+
+    <table>
+
+        <th>Fecha Creacion</th>
+        <th>Fecha Modificacion</th>
+        <th>Fecha</th>
+        <th>Tipo_estado</th>
+        <th>Descripcion</th>
+        <!--th>Id</th>
+        <th>Estado</th-->
+        <th>Modificar</th>
+        <th>Eliminar</th>
+
+
+        {% for estado_facturas in estados_facturas_ls %}
+
+            <tr>
+
+                <td>{{ estado_facturas.fecha_creacion }}</td>
+                <td>{{ estado_facturas.fecha_modificacion }}</td>
+                <td>{{ estado_facturas.fecha }}</td>
+                <td>{{ estado_facturas.tipo_estado }}</td>
+                <td>{{ estado_facturas.descripcion }}</td>
+                <!--td>{{ estado_facturas.id }}</td>
+                <td>{{ estado_facturas.estado }}</td-->
+                <td><a href='{% url 'modificar_estado_facturas' estado_facturas.id %}'>...</a></td>
+                <td><a href='{% url 'eliminar_estado_facturas' estado_facturas.id %}'>...</a></td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

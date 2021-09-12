@@ -1,0 +1,52 @@
+{% extends 'base1.html' %}
+
+{% block contenido %}
+
+    <!--<h1> CONSULTA DE FACTURA</h1-->
+
+    <a href='{% url 'crear_factura' %}'> Crear Factura </a>
+
+
+    <table>
+
+        <th>Fecha Creacion</th>
+        <th>Fecha Modificacion</th>
+        <th>Fecha</th>
+        <th>Num_factura</th>
+        <th>Descripcion</th>
+        <th>Subtotal</th>
+        <th>Iva</th>
+        <th>Total</th>
+        <th>Forma_pago</th>
+        <!--th>Id</th>
+        <th>Estado</th-->
+        <th>Modificar</th>
+        <th>Eliminar</th>
+
+
+        {% for factura in facturas_ls %}
+
+            <tr>
+
+                <td>{{ factura.fecha_creacion }}</td>
+                <td>{{ factura.fecha_modificacion }}</td>
+                <td>{{ factura.fecha }}</td>
+                <td>{{ factura.num_factura }}</td>
+                <td>{{ factura.descripcion }}</td>
+                <td>{{ factura.subtotal }}</td>
+                <td>{{ factura.iva }}</td>
+                <td>{{ factura.total }}</td>
+                <td>{{ factura.forma_pago }}</td>
+                <!--td>{{ factura.id }}</td>
+                <td>{{ factura.estado }}</td-->
+                <td><a href='{% url 'modificar_factura' factura.id %}'>...</a></td>
+                <td><a href='{% url 'eliminar_factura' factura.id %}'>...</a></td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}
